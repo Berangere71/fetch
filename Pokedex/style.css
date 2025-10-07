@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif; /* Police de caractères pour le corps de la page */
+    background-color: #b91111; /* Couleur de fond de la page */
+    margin: 10px; 
+    padding: 10px; /* Ajout d'un padding autour du contenu */
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+h1 {
+    text-align: center; /* Centrer le titre */
+    font-size: medium;
+    color : white; /* couleur du texte */
+}
+
+.loading {
+    text-align: center; /* Centrer le message de chargement */
+    font-size: 20px; /* Taille de la police du message */
+    color : white; /* Couleur du texte */
+}
+
+.pokemons-grid {
+    display: grid; /* Utiliser une grille CSS pour la disposition */
+    grid-template-columns :400px; 
+    align-items: center;
+    gap: 20px; /* Espace entre les éléments de la grille */
+    margin-top: 10px; /* Espace au-dessus de la grille */
+}
+
+.pokemon-item {
+    width : 500px;
+    height : 100px;
+    display: flex;
+    justify-content : space-between;
+    background-color: #2b2828; /* Couleur de fond des éléments de Pokémon */
+    font-size:large;
+    color : white;
+    border: 1px solid #2b2828; /* Bordure grise autour de chaque élément */
+    border-radius: 5px; /* Arrondir les coins de chaque élément */
+    padding: 0px; /* Espace intérieur de chaque élément */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+}
+
+p {
+    margin : 50px;
+}
+
+
+.img-pokemon-item {
+    width: 80px; /* Largeur de l'image du Pokémon */
+    height: 15%; /* Hauteur automatique pour garder les proportions */
+    margin-top: 10px; /* Espace au-dessus de l'image */
+} 
+
+
+
+.search-container {
+    margin-top: 30px; /* Espace au-dessus de la barre de recherche */
+    margin : 0px;
+    padding: 0px;
+}
+
+.search-input {
+    background-color: maroon;
+    color:white;
+    width: 500px; /* Largeur de la barre de recherche */
+    padding: 10px; /* Espace intérieur */
+    margin : 20px;
+    border-radius: 5px; /* Coins arrondis */
+  
+}
+
+.search-button img {
+    width: 30px; /* Largeur de l'icône */
+    height: 30px; /* Hauteur de l'icône */
+    padding : 0px;
+    margin : 0px;
+   
+}
+.search-button {
+    width : 30px;
+    height : 30px;
+    background: #b91111;
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur en forme de main au survol */
+    margin-left: 10px; /* Espace à gauche du bouton */
+}
+
+.pokemon-evolution {
+    background-color: #2b2828; /* Couleur de fond des éléments de Pokémon */
+    color : white;
+    border: 1px solid #2b2828; /* Bordure grise autour de chaque élément */
+    border-radius: 5px; /* Arrondir les coins de chaque élément */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+    display: flex;
+    justify-content : space-between;
+    margin-right: 60px;
+    font-size: 20px;
+}
+
+
+.pokemon-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+  padding-right: 200px;
+  text-align: center;
+}
+
+.pokemon-image .id {
+  color: white;
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+.pokemon-image .pokemon-img {
+  width: 400px;
+  height: 400px;
+  margin: 20px 0;
+}
+
+.pokemon-image .name {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.pokemon-image h1 {
+  color: white;
+  font-size: 22px;
+  margin: 20px 0 10px 0;
+}
+
+.pokemon-image .api-types {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pokemon-image .api-types img {
+  width: 50px;
+  height: 50px;
+}
