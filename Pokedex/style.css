@@ -11,6 +11,29 @@ main {
 
 }
 
+.pokemons-grid {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: start; /* Changé de center à start */
+  gap: 20px;
+  margin-top: 10px;
+  overflow-y: auto; /* Active le scroll vertical */
+  overflow-x: hidden; /* Cache le scroll horizontal */
+  height: 100%; /* Prend toute la hauteur disponible */
+  padding-right: 10px; /* Espace pour la scrollbar */
+}
+
+
+/* Section des détails du Pokémon (côté droit) */
+.pokemons-details {
+  position: sticky; /* Reste fixe lors du scroll de la page */
+  top: 0; /* Se colle en haut de la fenêtre */
+  height: fit-content; /* La hauteur s'adapte au contenu */
+  max-height: 100%; /* Ne dépasse pas 100% de la hauteur du parent */
+  overflow-y: auto; /* Active le scroll si le contenu est trop grand */
+}
+
+
 h1 {
     text-align: center; /* Centrer le titre */
     font-size: medium;
@@ -75,8 +98,8 @@ p {
 }
 
 .search-button img {
-    width: 30px; /* Largeur de l'icône */
-    height: 30px; /* Hauteur de l'icône */
+    
+    height: 400%;
     padding : 0px;
     margin : 0px;
    
@@ -93,12 +116,15 @@ p {
 .pokemon-evolution {
     background-color: #2b2828; /* Couleur de fond des éléments de Pokémon */
     color : white;
+    width : 500px;
+    height : 100px;
     border: 1px solid #2b2828; /* Bordure grise autour de chaque élément */
     border-radius: 5px; /* Arrondir les coins de chaque élément */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
     display: flex;
     justify-content : space-between;
     margin-right: 60px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
@@ -109,7 +135,7 @@ p {
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 20px;
+  padding: 10px;
   padding-right: 200px;
   text-align: center;
 }

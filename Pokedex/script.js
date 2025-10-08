@@ -31,15 +31,13 @@ fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
       pokemonCard_elem.appendChild(spriteTag_elem);
 
       
-
       // Ajouter un gestionnaire d'événements pour afficher les détails du Pokémon
       pokemonCard_elem.addEventListener('click', () => {
         // Sélectionner les éléments de détails dans le HTML
         const idElement = document.querySelector('.pokemon-image .id');
         const nameElement = document.querySelector('.pokemon-image .name');
         const imgElement = document.querySelector('.pokemon-image .pokemon-img');
-        const typesElement = document.querySelector('.pokemon-image .api-types');
-
+        
         // Remplir l'ID
         idElement.textContent = `N° ${pokemon_obj.id}`;
 
@@ -124,34 +122,40 @@ fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
             imgEvolutionElement.replaceWith(srcElement);
           }
         }
-
         
       });
-
-      
-
+  
       // Ajouter l'élément div à la grille
       pokemonsGrid_elem.appendChild(pokemonCard_elem);
     });
 
-
-    // Fonctionnalité de recherche
+// Fonctionnalité de recherche
     const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.search-button');
 
     // Fonction de recherche
     function searchPokemon() {
+      // Récupère le texte saisi, le met en minuscules et enlève les espaces
       const searchTerm = searchInput.value.toLowerCase().trim();
+      // Sélectionne toutes les cartes Pokémon
       const allPokemonCards = document.querySelectorAll('.pokemon-item');
 
       allPokemonCards.forEach(card => {
+        // Récupère le nom du Pokémon (2ème paragraphe)
         const pokemonName = card.querySelector('p:nth-child(2)').textContent.toLowerCase();
-        const pokemonId = card.querySelector('p:nth-child(1)').textContent.toLowerCase();
+        // Récupère l'ID du Pokémon (1er paragraphe) et enlève "id: " du texte
+        const pokemonId = card.querySelector('p:nth-child(1)').textContent.toLowerCase().replace('id:', '').trim();
 
-        // Afficher ou masquer selon la recherche
-        if (pokemonName.includes(searchTerm) || pokemonId.includes(searchTerm)) {
+        // Si le champ de recherche est vide, afficher tous les Pokémon
+        if (searchTerm === '') {
           card.style.display = 'flex';
-        } else {
+        }
+        // Sinon, afficher seulement ceux qui correspondent à la recherche
+        else if (pokemonName.includes(searchTerm) || pokemonId.includes(searchTerm)) {
+          card.style.display = 'flex';
+        } 
+        // Masquer ceux qui ne correspondent pas
+        else {
           card.style.display = 'none';
         }
       });
@@ -173,6 +177,3 @@ fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
   .catch(error => {
     console.error("Erreur lors de la récupération des Pokémon:", error);
   });
-
-
-    
