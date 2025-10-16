@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href = "https://fontawesome.com/search?q=weather&o=r">
+  <link rel="stylesheet" href="style.css">
+  <title>Météo</title>
+</head>
+<body>
+
+<div class="search-town">
+  <input type="text" class="search-input" placeholder="Cherchez une ville ..." >
+  <button class="search-button">
+    <i class="fa-solid fa-magnifying-glass" style="color: #ffffff; font-size: 24px;"></i>
+  </button>
+</div>
+
+<div class="coordinates">
+  <input type="number" class="coord-input" placeholder="Latitude">
+  <input type="number" class="coord-input" placeholder="Longitude">
+</div>
+    <div class="city-name"></div>
+    
+ <div class="weather-image">
+<i class="fa-regular fa-cloud fa-sun fa-cloud-rain "></i>
+
+      <p class="temperature"></p>
+
+ </div>
+
+<div class="localisation">
+  <h1>Ma position</h1>
+  <button class="search-button-position">
+    <i class="fa-solid fa-magnifying-glass-location" style="color: #ffffff; font-size: 24px;"></i>
+  </button>
+</div>
+
+
+    </body>
+    <script src="script.js"></script>

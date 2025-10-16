@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 50%, #2f8f9d 100%);
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+/* Section recherche ville */
+.search-town {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 15px;
+  padding: 15px 20px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: background 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.search-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 15px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.search-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* Section coordonnées */
+.coordinates {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.coord-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 15px;
+  padding: 15px 15px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  text-align: center;
+  transition: background 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.coord-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.coord-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Supprimer les flèches des inputs number */
+.coord-input::-webkit-outer-spin-button,
+.coord-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* .coord-input[type=number] {
+  -moz-appearance: textfield;
+} */
+
+/* Nom de la ville */
+.city-name {
+  color: white;
+  font-size: 52px;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  min-height: 60px;
+}
+
+/* Section météo */
+.weather-image {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0,7;
+  gap: 20px;
+}
+
+.weather-image i {
+  font-size: 130px;
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s;
+}
+
+.weather-image i:hover {
+  transform: scale(1.1);
+}
+
+.temperature {
+  color: white;
+  font-size: 85px;
+  font-weight: 200;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  letter-spacing: -2px;
+}
+
+/* Description météo (à ajouter dans le HTML si besoin) */
+.weather-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* Section localisation */
+.localisation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.localisation:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.localisation h1 {
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.search-button-position {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-button-position:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Messages d'erreur */
+.error-message {
+  display: none;
+  background: rgba(255, 82, 82, 0.9);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  max-width: 400px;
+  animation: slideIn 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading */
+.loading {
+  display: none;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.loading::after {
+  content: '...';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: '.';
+  }
+  40% {
+    content: '..';
+  }
+  60%, 100% {
+    content: '...';
+  }
+}
+
+/* Mode sombre (nuit) */
+body.body-dark-mode {
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+body.body-dark-mode .search-input,
+body.body-dark-mode .coord-input,
+body.body-dark-mode .search-button,
+body.body-dark-mode .search-button-position,
+body.body-dark-mode .localisation {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.body-dark-mode .search-input:focus,
+body.body-dark-mode .coord-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.body-dark-mode .weather-image i {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Responsive Design */
+
+/* Tablettes et petits écrans (768px et moins) */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+  
+  .search-town,
+  .coordinates {
+    max-width: 90%;
+  }
+  
+  .city-name {
+    font-size: 44px;
+  }
+  
+  .temperature {
+    font-size: 75px;
+  }
+  
+  .weather-image i {
+    font-size: 115px;
+  }
+}
+
+/* Smartphones (480px et moins) */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 15px;
+    gap: 20px;
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+  
+  .search-town,
+  .coordinates {
+    max-width: 100%;
+    width: 95%;
+  }
+  
+  .search-input {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  .search-button {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .search-button i,
+  .search-button-position i {
+    font-size: 20px !important;
+  }
+  
+  .coord-input {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  
+  .city-name {
+    font-size: 36px;
+    margin: 15px 0;
+    min-height: 45px;
+  }
+  
+  .temperature {
+    font-size: 65px;
+  }
+  
+  .weather-image {
+    gap: 15px;
+  }
+  
+  .weather-image i {
+    font-size: 100px;
+  }
+  
+  .weather-description {
+    font-size: 18px;
+  }
+  
+  .localisation {
+    padding: 12px 25px;
+    gap: 12px;
+  }
+  
+  .localisation h1 {
+    font-size: 16px;
+  }
+  
+  .search-button-position {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .error-message {
+    max-width: 95%;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+
+/* Petits smartphones (360px et moins) */
+@media (max-width: 360px) {
+  body {
+    padding: 15px 10px;
+    gap: 15px;
+    padding-top: 30px;
+  }
+  
+  .search-town,
+  .coordinates {
+    width: 100%;
+    gap: 8px;
+  }
+  
+  .search-input {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+  
+  .search-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+  }
+  
+  .coord-input {
+    padding: 10px 8px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+  
+  .coord-input::placeholder {
+    font-size: 12px;
+  }
+  
+  .city-name {
+    font-size: 28px;
+    margin: 10px 0;
+    min-height: 35px;
+  }
+  
+  .temperature {
+    font-size: 55px;
+    letter-spacing: -1px;
+  }
+  
+  .weather-image {
+    gap: 10px;
+  }
+  
+  .weather-image i {
+    font-size: 80px;
+  }
+  
+  .weather-description {
+    font-size: 16px;
+  }
+  
+  .localisation {
+    padding: 10px 20px;
+    gap: 10px;
+    border-radius: 15px;
+  }
+  
+  .localisation h1 {
+    font-size: 15px;
+  }
+  
+  .search-button-position {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .search-button i,
+  .search-button-position i {
+    font-size: 18px !important;
+  }
+}
+
+/* Très petits écrans (320px et moins) */
+@media (max-width: 320px) {
+  .city-name {
+    font-size: 24px;
+    word-break: break-word;
+  }
+  
+  .temperature {
+    font-size: 48px;
+  }
+  
+  .weather-image i {
+    font-size: 70px;
+  }
+  
+  .localisation h1 {
+    font-size: 14px;
+  }
+  
+  .coordinates {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .coord-input {
+    width: 100%;
+  }
+}
+
+/* Mode paysage sur mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    gap: 10px;
+    padding: 15px;
+    justify-content: flex-start;
+  }
+  
+  .city-name {
+    font-size: 28px;
+    margin: 5px 0;
+    min-height: auto;
+  }
+  
+  .temperature {
+    font-size: 45px;
+  }
+  
+  .weather-image i {
+    font-size: 60px;
+  }
+  
+  .weather-image {
+    gap: 5px;
+  }
+}

@@ -176,3 +176,44 @@ p {
   width: 50px;
   height: 50px;
 }
+
+
+/* Media Queries pour le responsive */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+    }
+
+    .pokemon-item,
+    .pokemon-evolution {
+        width: 100%; /* Prendre toute la largeur disponible */
+        margin-right: 0; /* Enlever la marge à droite */
+    }
+
+    .search-input {
+        width: 100%; /* La barre de recherche prend toute la largeur */
+        margin: 10px 0; /* Ajuster la marge */
+    }
+
+    .pokemons-details {
+        max-height: 80vh; /* Limiter la hauteur de la section des détails */
+    }
+
+    .pokemons-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour la grille de Pokémon */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Réduire la taille de la police du titre */
+    }
+
+    .loading {
+        font-size: 18px; /* Réduire la taille de la police du message de chargement */
+    }
+
+    .img-pokemon-item {
+        width: 50px; /* Ajuster la largeur de l'image du Pokémon */
+    }
+}
