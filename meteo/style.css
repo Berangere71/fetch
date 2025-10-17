@@ -1,214 +1,217 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Supprime la marge par défaut de tous les éléments */
+  padding: 0; /* Supprime le remplissage par défaut de tous les éléments */
+  box-sizing: border-box; /* Change le modèle de boîte pour inclure les bordures et le remplissage dans les dimensions de l'élément */
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #2b5876 0%, #4e4376 50%, #2f8f9d 100%);
-  padding: 40px 20px;
-  gap: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Définit la police de caractères du corps */
+  min-height: 100vh; /* Assure que le corps occupe au moins la hauteur de la fenêtre */
+  display: flex; /* Utilise Flexbox pour le layout */
+  flex-direction: column; /* Dispose les éléments enfants en colonne */
+  justify-content: center; /* Centre les éléments verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 50%, #2f8f9d 100%); /* Définit un fond dégradé */
+  padding: 40px 20px; /* Ajoute du remplissage autour du contenu */
+  gap: 30px; /* Espace entre les éléments enfants */
 }
 
 /* Recherche */
 .search-town {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  max-width: 400px;
+  display: flex; /* Utilise Flexbox pour le layout */
+  gap: 10px; /* Espace entre les éléments dans le conteneur */
+  width: 100%; /* Prend toute la largeur disponible */
+  max-width: 400px; /* Limite la largeur maximale à 400 pixels */
 }
 
 .search-input, .coord-input {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 15px;
-  padding: 15px 20px;
-  color: white;
-  font-size: 16px;
-  outline: none;
-  transition: background 0.3s;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent blanc */
+  border: none; /* Supprime la bordure par défaut */
+  border-radius: 15px; /* Arrondit les coins de l'élément */
+  padding: 15px 20px; /* Ajoute du remplissage intérieur */
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 18px; /* Définit la taille de la police */
+  outline: none; /* Supprime le contour par défaut lors de la mise au point */
+  transition: background 0.3s; /* Animation lors du changement de fond */
+  backdrop-filter: blur(10px); /* Applique un flou d'arrière-plan */
 }
 
 .search-input {
-  flex: 1;
+  flex: 1; /* Permet à ce champ de s'étendre pour occuper tout l'espace disponible */
 }
 
 .search-input::placeholder, .coord-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7); /* Couleur du texte d'espace réservé (placeholder) */
 }
 
 .search-input:focus, .coord-input:focus {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3); /* Change le fond lors de la mise au point */
 }
 
 .search-button, .search-button-position {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 15px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent blanc */
+  border: none; /* Supprime la bordure par défaut */
+  border-radius: 15px; /* Arrondit les coins de l'élément */
+  width: 60px; /* Définit la largeur */
+  height: 60px; /* Définit la hauteur */
+  display: flex; /* Utilise Flexbox pour le layout */
+  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center; /* Centre le contenu horizontalement */
+  cursor: pointer; /* Change le curseur en pointeur lors du survol */
+  transition: all 0.3s; /* Animation pour tous les changements */
+  backdrop-filter: blur(10px); /* Applique un flou d'arrière-plan */
 }
 
 .search-button:hover, .search-button-position:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.35); /* Change le fond lors du survol */
+  transform: scale(1.05); /* Agrandit légèrement l'élément lors du survol */
 }
 
 /* Coordonnées */
 .coordinates {
-  display: flex;
-  gap: 15px;
-  width: 100%;
-  max-width: 400px;
+  display: flex; /* Utilise Flexbox pour le layout */
+  gap: 15px; /* Espace entre les éléments dans le conteneur */
+  width: 100%; /* Prend toute la largeur disponible */
+  max-width: 400px; /* Limite la largeur maximale à 400 pixels */
 }
 
 .coord-input {
-  flex: 1;
-  padding: 15px;
-  font-size: 15px;
-  text-align: center;
+  flex: 1; /* Permet à ce champ de s'étendre pour occuper tout l'espace disponible */
+  padding: 15px; /* Ajoute du remplissage intérieur */
+  font-size: 15px; /* Définit la taille de la police */
+  text-align: center; /* Centre le texte horizontalement */
 }
 
+/* Supprime le style des boutons de spin pour les entrées de type nombre */
 .coord-input::-webkit-outer-spin-button,
 .coord-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  -webkit-appearance: none; /* Supprime l'apparence par défaut pour les navigateurs WebKit */
+  margin: 0; /* Supprime la marge par défaut */
 }
 
 /* Affichage météo */
 .city-name {
-  color: white;
-  font-size: 52px;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  margin: 20px 0;
-  min-height: 60px;
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 54px; /* Définit la taille de la police */
+  font-weight: 300; /* Définit le poids de la police */
+  text-align: center; /* Centre le texte */
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ajoute une ombre au texte */
+  margin: 20px 0; /* Ajoute de la marge en haut et en bas */
+  min-height: 60px; /* Définit une hauteur minimale */
 }
 
 .weather-image {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  text-align: center; /* Centre le contenu */
+  display: flex; /* Utilise Flexbox pour le layout */
+  flex-direction: column; /* Aligne les éléments enfants en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+  gap: 20px; /* Espace entre les éléments enfants */
 }
 
 .weather-image i {
-  font-size: 130px;
-  color: rgba(255, 255, 255, 0.95);
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s;
+  font-size: 130px; /* Définit la taille de l'icône */
+  color: rgba(255, 255, 255, 0.95); /* Définit la couleur de l'icône */
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3)); /* Applique une ombre portée à l'icône */
+  transition: transform 0.3s; /* Animation pour la transformation */
 }
 
 .weather-image i:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Agrandit l'icône lors du survol */
 }
 
 .temperature {
-  color: white;
-  font-size: 85px;
-  font-weight: 200;
-  margin: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  letter-spacing: -2px;
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 85px; /* Définit la taille de la police */
+  font-weight: 200; /* Définit le poids de la police */
+  margin: 0; /* Supprime la marge par défaut */
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Ajoute une ombre au texte */
+  letter-spacing: -2px; /* Réduit l'espacement entre les lettres */
 }
 
 .weather-description {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
-  margin-top: -10px;
+  color: rgba(255, 255, 255, 0.9); /* Définit la couleur du texte en blanc avec un peu de transparence */
+  font-size: 20px; /* Définit la taille de la police */
+  font-weight: 300; /* Définit le poids de la police */
+  text-align: center; /* Centre le texte */
+  margin-top: -10px; /* Ajoute une marge négative en haut */
 }
 
 /* Localisation */
 .localisation {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 15px 30px;
-  border-radius: 20px;
-  margin-top: 20px;
-  transition: all 0.3s;
+  display: flex; /* Utilise Flexbox pour le layout */
+  align-items: center; /* Centre les éléments verticalement */
+  gap: 15px; /* Espace entre les éléments dans le conteneur */
+  background: rgba(255, 255, 255, 0.15); /* Fond semi-transparent blanc */
+  backdrop-filter: blur(10px); /* Applique un flou d'arrière-plan */
+  padding: 15px 30px; /* Ajoute du remplissage intérieur */
+  border-radius: 20px; /* Arrondit les coins */
+  margin-top: 20px; /* Ajoute une marge en haut */
+  transition: all 0.3s; /* Animation pour tous les changements */
 }
 
 .localisation:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2); /* Change le fond lors du survol */
+  transform: translateY(-2px); /* Légère translation vers le haut lors du survol */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Ajoute une ombre lors du survol */
 }
 
 .localisation h1 {
-  color: white;
-  font-size: 18px;
-  font-weight: 300;
-  margin: 0;
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 18px; /* Définit la taille de la police */
+  font-weight: 300; /* Définit le poids de la police */
+  margin: 0; /* Supprime la marge par défaut */
 }
 
 .search-button-position {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  border-radius: 50%; /* Rend le bouton circulaire */
+  width: 50px; /* Définit la largeur */
+  height: 50px; /* Définit la hauteur */
 }
 
 .search-button-position:hover {
-  transform: rotate(15deg) scale(1.1);
+  transform: rotate(15deg) scale(1.1); /* Fait pivoter et agrandir le bouton lors du survol */
 }
 
 /* Erreur & Loading */
 .error-message {
-  display: none;
-  background: rgba(255, 82, 82, 0.9);
-  color: white;
-  padding: 15px 25px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 15px;
-  max-width: 400px;
-  animation: slideIn 0.3s ease;
+  display: none; /* Cache l'élément par défaut */
+  background: rgba(255, 82, 82, 0.9); /* Fond rouge semi-transparent */
+  color: white; /* Définit la couleur du texte en blanc */
+  padding: 15px 25px; /* Ajoute du remplissage intérieur */
+  border-radius: 15px; /* Arrondit les coins */
+  text-align: center; /* Centre le texte */
+  font-size: 15px; /* Définit la taille de la police */
+  max-width: 400px; /* Limite la largeur maximale */
+  animation: slideIn 0.3s ease; /* Animation d'entrée */
 }
 
+/* Animation pour faire glisser l'élément */
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-20px); } /* Commence invisible et décalé vers le haut */
+  to { opacity: 1; transform: translateY(0); } /* Finit visible et à sa place */
 }
 
 .loading {
-  display: none;
-  color: white;
-  font-size: 18px;
+  display: none; /* Cache l'élément par défaut */
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 18px; /* Définit la taille de la police */
 }
 
 .loading::after {
-  content: '...';
-  animation: dots 1.5s steps(4, end) infinite;
+  content: '...'; /* Affiche des points pour indiquer le chargement */
+  animation: dots 1.5s steps(4, end) infinite; /* Animation pour les points */
 }
 
+/* Animation des points de chargement */
 @keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60%, 100% { content: '...'; }
+  0%, 20% { content: '.'; } /* Affiche un point */
+  40% { content: '..'; } /* Affiche deux points */
+  60%, 100% { content: '...'; } /* Affiche trois points */
 }
 
 /* Mode nuit */
 body.body-dark-mode {
-  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); /* Fond dégradé pour le mode nuit */
 }
 
 body.body-dark-mode .search-input,
@@ -216,49 +219,49 @@ body.body-dark-mode .coord-input,
 body.body-dark-mode .search-button,
 body.body-dark-mode .search-button-position,
 body.body-dark-mode .localisation {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent blanc pour les éléments en mode nuit */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  body { padding: 30px 20px; gap: 25px; }
-  .city-name { font-size: 44px; }
-  .temperature { font-size: 75px; }
-  .weather-image i { font-size: 115px; }
+  body { padding: 30px 20px; gap: 25px; } /* Ajuste le remplissage et l'espacement pour les écrans plus petits */
+  .city-name { font-size: 44px; } /* Réduit la taille du texte pour le nom de la ville */
+  .temperature { font-size: 75px; } /* Ajuste la taille de la température */
+  .weather-image i { font-size: 115px; } /* Réduit la taille de l'icône météo */
 }
 
 @media (max-width: 480px) {
-  body { padding: 20px 15px; gap: 20px; justify-content: flex-start; padding-top: 40px; }
-  .search-town, .coordinates { width: 95%; }
-  .search-input { padding: 12px 15px; font-size: 15px; }
-  .search-button { width: 50px; height: 50px; }
-  .city-name { font-size: 36px; }
-  .temperature { font-size: 65px; }
-  .weather-image i { font-size: 100px; }
-  .localisation { padding: 12px 25px; }
-  .search-button-position { width: 45px; height: 45px; }
+  body { padding: 20px 15px; gap: 20px; justify-content: flex-start; padding-top: 40px; } /* Ajuste le remplissage et l'espacement pour les écrans plus petits */
+  .search-town, .coordinates { width: 95%; } /* Ajuste la largeur des éléments de recherche et de coordonnées */
+  .search-input { padding: 12px 15px; font-size: 15px; } /* Ajuste le remplissage et la taille de la police */
+  .search-button { width: 50px; height: 50px; } /* Ajuste la taille du bouton de recherche */
+  .city-name { font-size: 36px; } /* Réduit la taille du texte pour le nom de la ville */
+  .temperature { font-size: 65px; } /* Ajuste la taille de la température */
+  .weather-image i { font-size: 100px; } /* Ajuste la taille de l'icône météo */
+  .localisation { padding: 12px 25px; } /* Ajuste le remplissage de l'élément de localisation */
+  .search-button-position { width: 45px; height: 45px; } /* Ajuste la taille du bouton de position */
 }
 
 @media (max-width: 360px) {
-  body { padding: 15px 10px; gap: 15px; }
-  .search-input, .search-button, .coord-input { border-radius: 12px; }
-  .search-button { width: 45px; height: 45px; }
-  .city-name { font-size: 28px; }
-  .temperature { font-size: 55px; }
-  .weather-image i { font-size: 80px; }
-  .search-button-position { width: 40px; height: 40px; }
+  body { padding: 15px 10px; gap: 15px; } /* Ajuste le remplissage et l'espacement pour les écrans plus petits */
+  .search-input, .search-button, .coord-input { border-radius: 12px; } /* Ajuste l'arrondi des coins pour les champs et les boutons */
+  .search-button { width: 45px; height: 45px; } /* Ajuste la taille du bouton de recherche */
+  .city-name { font-size: 28px; } /* Réduit la taille du texte pour le nom de la ville */
+  .temperature { font-size: 55px; } /* Ajuste la taille de la température */
+  .weather-image i { font-size: 80px; } /* Ajuste la taille de l'icône météo */
+  .search-button-position { width: 40px; height: 40px; } /* Ajuste la taille du bouton de position */
 }
 
 @media (max-width: 320px) {
-  .city-name { font-size: 24px; word-break: break-word; }
-  .temperature { font-size: 48px; }
-  .weather-image i { font-size: 70px; }
-  .coordinates { flex-direction: column; }
+  .city-name { font-size: 24px; word-break: break-word; } /* Réduit la taille du texte pour le nom de la ville et permet le retour à la ligne */
+  .temperature { font-size: 48px; } /* Ajuste la taille de la température */
+  .weather-image i { font-size: 70px; } /* Ajuste la taille de l'icône météo */
+  .coordinates { flex-direction: column; } /* Change l'orientation des coordonnées en colonne */
 }
 
 @media (max-height: 600px) and (orientation: landscape) {
-  body { gap: 10px; padding: 15px; }
-  .city-name { font-size: 28px; margin: 5px 0; }
-  .temperature { font-size: 45px; }
-  .weather-image i { font-size: 60px; }
+  body { gap: 10px; padding: 15px; } /* Ajuste l'espacement et le remplissage pour les écrans paysage */
+  .city-name { font-size: 28px; margin: 5px 0; } /* Réduit la taille du texte pour le nom de la ville en mode paysage */
+  .temperature { font-size: 45px; } /* Ajuste la taille de la température */
+  .weather-image i { font-size: 60px; } /* Ajuste la taille de l'icône météo */
 }
